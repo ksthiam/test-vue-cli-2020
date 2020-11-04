@@ -1,19 +1,23 @@
 <template>
     <div class ="dialog-parent">
-
+      <transition :duration ="10000">
         <div class="dialog-backdrop" v-show="visible"></div>
+      </transition>
+
+      <transition :duration ="6000">
         <div class="dialog-window" v-show="visible">
             <header>
                 <h1>{{titre}}</h1>
             </header>
             <div class="main">
-                Contenu
+               <slot/>
             </div>
             <footer>
                 <button @click=" visible = false">Close</button>
 
             </footer>
         </div>
+        </transition>
     </div>
 </template>
 

@@ -2,7 +2,7 @@
   <div id="app">
     <button>Open</button>
 
-    <SimpleDialog :visible="visible"/>
+    <SimpleDialog ref="dialog"/>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   },
   data: function (){
     return {
-      visible: false,
+
     }
   }
 }

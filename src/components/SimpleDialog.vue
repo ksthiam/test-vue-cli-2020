@@ -11,7 +11,7 @@
             </div>
             <footer>
 
-                <button @click="visible = false">Close</button>
+                <button @click="$refs.dialog.visible = false">Close</button>
             </footer>
         </div>
     </div>

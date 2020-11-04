@@ -3,7 +3,7 @@
 
 
     <button @click="$refs.dialog.show ()">open</button>
-    <SimpleDialog ref="dialog" :initial-visible="true"/>
+    <SimpleDialog ref="dialog" initial-visible titre="Le titre de cette instance" />
   </div>
 </template>
 

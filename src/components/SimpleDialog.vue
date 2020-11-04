@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <button>Open</button>
+
 
         <div class="dialog-window" v-show="visible">
             <header>
@@ -23,11 +23,15 @@
     export default {
         name: 'SimpleDialog',
         props:{
+            initialVisible:{
+                type: Boolean,
+                default: false,
+            }
     },
 
         data: function () {
             return{
-                visible:false,
+                visible:this.initialVisible,
             }
 
         },

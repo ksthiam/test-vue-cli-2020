@@ -10,6 +10,7 @@
                 Contenu
             </div>
             <footer>
+
                 <button @click="visible = false">Close</button>
             </footer>
         </div>

@@ -10,22 +10,20 @@
         Contenu
       </div>
       <footer>
-        <button @click="visible = true">Close</button>
         <button @click="visible = false">Close</button>
 
       </footer>
     </div>
-
   </div>
 </template>
 
 <script>
-
+import SimpleDialog from "@/components/SimpleDialog";
 
 export default {
   name: 'App',
   components: {
-    //HelloWorld
+    SimpleDialog
 
   },
   data: function (){

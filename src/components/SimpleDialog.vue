@@ -11,7 +11,7 @@
             </div>
             <footer>
 
-                <button @click="$refs.dialog.visible = false">Close</button>
+
             </footer>
         </div>
     </div>
@@ -31,7 +31,11 @@
             }
 
         },
-
+    methods: {
+            show(){
+                this.visible= true;
+            }
+    }
 
     }
 </script>

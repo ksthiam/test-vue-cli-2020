@@ -22,10 +22,17 @@
 
     export default {
         name: 'SimpleDialog',
-        props: {
-        visible: {}
+        props:{
+    },
 
-        }
+        data: function () {
+            return{
+                visible:false,
+            }
+
+        },
+
+
     }
 </script>
 

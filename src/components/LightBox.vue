@@ -27,15 +27,20 @@ export default {
   data() {
     return {
       imageCourante: "",
-      imagesData:[],
+      imagesData: [],
 
     }
   },
   created() {
     fetch("images-data.json")
-    .then(rep=> rep.json())
-    .then(json=> this.imagesData = json);
+        .then(rep => rep.json())
+        .then(json => this.imagesData = json);
   },
+  props: {
+    initialImages: {
+      default: "images-data.json"
+  }
+},
   methods: {
     afficheImg(url) {
     this.imageCourante = url;

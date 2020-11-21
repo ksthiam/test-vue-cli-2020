@@ -1,28 +1,26 @@
 <template>
-  <div classe="light-box">
+  <div class="light-box">
+    <ul>
+      <li><img src="images/thumbnails/animals-1.jpeg" data-full-img="images/animals-1.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-2.jpeg" data-full-img="images/animals-2.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-3.jpeg" data-full-img="images/animals-3.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-4.jpeg" data-full-img="images/animals-4.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-5.jpeg" data-full-img="images/animals-5.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-6.jpeg" data-full-img="images/animals-6.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-7.jpeg" data-full-img="images/animals-7.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-8.jpeg" data-full-img="images/animals-8.jpeg" alt=""/></li>
+      <li><img src="images/thumbnails/animals-9.jpeg" data-full-img="images/animals-9.jpeg" alt=""/></li>
+    </ul>
 
-    <button @click="$refs.dialog.show ()">open</button>
+    <button @click="$refs.dialog.show()">Open</button>
 
     <SimpleDialog ref="dialog"
-                  titre="Le nouveau titre depuis le parent" >
-      Le contenu passe par le parent
+                  titre="Le titre de cette instance">
+      <img src="images/animals-1.jpeg" alt=""
+           width="400" height="200">
+      <!-- On met la taille pour ne pas avoir à écrire
+            un code qui attend le chargement de l'image -->
     </SimpleDialog>
+
   </div>
 </template>
-
-<script>
-import SimpleDialog from "@/components/SimpleDialog";
-
-export default {
-  name: 'LightBox',
-  components: {
-    SimpleDialog
-
-  },
-}
-
-</script>
-
-<style>
-
-</style>

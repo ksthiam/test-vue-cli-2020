@@ -32,29 +32,35 @@ export default {
     }
   },
   created() {
-    fetch("images-data.json")
-        .then(rep => rep.json())
-        .then(json => this.imagesData = json);
+    if (typeof this.initialImagesData == 'string') {
+
+      fetch(this.initialImagesData)
+          .then(rep => rep.json())
+          .then(json => this.imagesData = json);
+    } else {
+      this.imagesData = this.initialImagesData;
+    }
   },
   props: {
-    initialImages: {
-      default: "images-data.json"
-  }
-},
+    initialImagesData: {
+      type: [String, Array],
+      default: "default-images-data.json",
+    }
+  },
   methods: {
     afficheImg(url) {
-    this.imageCourante = url;
-    this.$refs.dialog.show();
+      this.imageCourante = url;
+      this.$refs.dialog.show();
 
       //affichImage() {
-       //this.$refs.dialo.show();
-       //this.imageCourante='images/animals-1.jpeg'
+      //this.$refs.dialo.show();
+      //this.imageCourante='images/animals-1.jpeg'
 
 
-  }
+    }
   },
-  }
-  
+}
+
 
 
 </script>

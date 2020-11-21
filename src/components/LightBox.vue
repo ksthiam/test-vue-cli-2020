@@ -16,11 +16,28 @@
 
     <SimpleDialog ref="dialog"
                   titre="Le titre de cette instance">
-      <img src="images/animals-1.jpeg" alt=""
+      <img :src="imageCourante" alt=""
            width="400" height="200">
       <!-- On met la taille pour ne pas avoir à écrire
             un code qui attend le chargement de l'image -->
     </SimpleDialog>
-
   </div>
 </template>
+<script>
+import SimpleDialog from "@/components/LightBox";
+
+export default {
+  name: 'LightBox',
+  components: {
+    SimpleDialog
+
+  },
+  data() {
+    return {
+      imageCourante: 'images/thumbnails/animals-2.jpeg'
+    }
+  },
+  
+}
+
+</script>

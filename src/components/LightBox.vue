@@ -1,15 +1,9 @@
 <template>
   <div class="light-box">
     <ul>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-1.jpeg')"   alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-2.jpeg')" alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-3.jpeg')"   alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-4.jpeg')"   alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-5.jpeg')"    alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-6.jpeg')"    alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-7.jpeg')"   alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-8.jpeg')"    alt=""/></li>
-      <li><img src="images/thumbnails/animals-1.jpeg"  @click="afficheImg('images/animals-9.jpeg')"  alt=""/></li>
+      <li v-for="{src, dataFullImg} in imagesData" :key="src">
+        <img :src="src" @click="afficheImg(dataFullImg)" alt=""/>
+      </li>
     </ul>
 
     <SimpleDialog ref="dialog"
@@ -32,7 +26,8 @@ export default {
   },
   data() {
     return {
-      imageCourante: [
+      imageCourante: "",
+      imagesData:[
         {
           "src": "images/thumbnails/animals-1.jpeg",
           "dataFullImg": "images/animals-1.jpeg"
@@ -75,14 +70,14 @@ export default {
   },
   methods: {
     afficheImg(url) {
-      this.imageCourante=url;
-      this.$refs.dialo.show();
+    this.imageCourante = url;
+    this.$refs.dialog.show();
 
-      //affichImaage() {
-       // this.$refs.dialo.show();
-       // this.imageCourante='images/animals-1.jpeg'
+      //affichImage() {
+       //this.$refs.dialo.show();
+       //this.imageCourante='images/animals-1.jpeg'
 
-    }
+    },
   },
   
 }

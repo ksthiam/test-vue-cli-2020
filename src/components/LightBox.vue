@@ -1,13 +1,14 @@
 <template>
   <div class="light-box">
     <ul>
-      <li v-for="{src, dataFullImg} in imagesData" :key="src">
-        <img :src="src" @click="afficheImg(dataFullImg)" alt=""/>
+      <li v-for="{src, dataFullImg, title} in imagesData" :key="src">
+        <img @click="afficheImg(dataFullImg,title)"
+             :src="src" alt="" :title="title"/>
       </li>
     </ul>
 
     <SimpleDialog ref="dialog"
-                  titre="Le titre de cette instance">
+           :titre="titreDialog">
       <img :src="imageCourante" alt=""
            width="400" height="200">
       <!-- On met la taille pour ne pas avoir à écrire
@@ -15,48 +16,43 @@
     </SimpleDialog>
   </div>
 </template>
+
 <script>
 import SimpleDialog from "@/components/SimpleDialog";
 
 export default {
   name: 'LightBox',
-  components: {
-    SimpleDialog
-
-  },
+  components: {SimpleDialog},
   data() {
     return {
-      imageCourante: "",
-      imagesData: [],
+      imageCourante: "images/animals-1.jpeg",
+      imagesData: [
+      ],
+      titreDialog:'',
 
-    }
-  },
-  created() {
-    if (typeof this.initialImagesData == 'string') {
-
-      fetch(this.initialImagesData)
-          .then(rep => rep.json())
-          .then(json => this.imagesData = json);
-    } else {
-      this.imagesData = this.initialImagesData;
     }
   },
   props: {
     initialImagesData: {
       type: [String, Array],
       default: "default-images-data.json",
+    },
+  },
+  created() {
+    if (typeof this.initialImagesData ==='string') {
+      fetch(this.initialImagesData)
+          .then(rep => rep.json())
+          .then(json => this.imagesData = json);
+    } else {
+      this.imagesData = this.initialImagesData;
     }
+
   },
   methods: {
-    afficheImg(url) {
-      this.imageCourante = url;
+    afficheImg(imageCourante, titreDialog) {
       this.$refs.dialog.show();
-
-      //affichImage() {
-      //this.$refs.dialo.show();
-      //this.imageCourante='images/animals-1.jpeg'
-
-
+      this.titreDialog = titreDialog
+      this.imageCourante = imageCourante
     }
   },
 }

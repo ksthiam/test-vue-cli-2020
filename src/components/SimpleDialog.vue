@@ -1,16 +1,17 @@
 <template>
     <div class ="dialog-parent">
-      <transition :duration ="100">
+      <transition :duration ="200">
         <div class="dialog-backdrop" v-show="visible"></div>
       </transition>
 
-      <transition :duration ="600">
+      <transition :duration ="1">
         <div class="dialog-window" v-show="visible">
             <header>
-                <h1>{{titre}}</h1>
+                <h1> {{ titre }} </h1>
             </header>
+
             <div class="main">
-               <slot/>
+               <slot> Valeur par defaut </slot>
             </div>
             <footer>
                 <button @click=" visible = false">Close</button>
@@ -26,29 +27,34 @@
 
     export default {
         name: 'SimpleDialog',
-        props:{
-            titre:{
-                type: String,
-                default: "le titre par defaut",
-            }
-    },
+      data() {
+        return{
+          visible: this.initialVisible,
+        }
 
-        data: function () {
-            return{
-                visible:this.initialVisible,
-            }
+      },
+        props: {
+            initialVisible: {
+                type: Boolean,
+                default: false
+            },
 
-        },
+      titre: {
+          type: String,
+          default: "le titre par defaut",
+      }
+
+     },
     methods: {
-            show(){
-                this.visible= true;
-            }
-    }
-
-    }
+            show() {
+                this.visible = true;
+     },
+    },
+}
 </script>
 
 <style scoped>
+
     .dialog-window {
         position: relative;
         pointer-events: auto;

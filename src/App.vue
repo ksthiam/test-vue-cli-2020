@@ -13,6 +13,7 @@ export default {
   components: {LightBox},
   data() {
     return {
+      filtreType: "domestique",
       ListeImages: [
 
         {
@@ -85,8 +86,10 @@ export default {
     }
   },
   computed: {
-    imagesDataFiltres() {
-      return this.ListeImages.filter(({type})=>type==="sauvage");
+   imagesDataFiltres() {
+      return this.ListeImages.filter(({type})=>type===this.filtreType);
+
+
 
     }
   },

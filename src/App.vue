@@ -73,6 +73,12 @@ export default {
       ]
     }
   },
+  computed: {
+    imagesDataFiltres() {
+      return [...this.ListeImages];
+
+    }
+  },
 
 }
 </script>

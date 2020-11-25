@@ -1,15 +1,16 @@
 <template>
   <div class="light-box">
     <ul>
-      <li v-for="{src, dataFullImg, title} in imagesData" :key="src">
-        <img @click="afficheImg(dataFullImg,title)"
-             :src="src" alt="" :title="title"/>
+      <li v-for="{src, dataFullImg, title, alt} in imagesData" :key="src">
+        <img @click="afficheImg(dataFullImg,title, alt, $event.target)"
+             :src="src" :alt="alt" :title="title"/>
       </li>
     </ul>
 
     <SimpleDialog ref="dialog"
-           :titre="titreDialog">
-      <img :src="imageCourante" alt=""
+           :titre="titreDialog" :alt="altDialog">
+
+      <img rel="desAnim" :src="imageCourante"
            width="400" height="200">
       <!-- On met la taille pour ne pas avoir à écrire
             un code qui attend le chargement de l'image -->
@@ -26,32 +27,25 @@ export default {
   data() {
     return {
       imageCourante: "images/animals-1.jpeg",
-      imagesData: [
-      ],
-      titreDialog:'',
+      titreDialog:"",
+      altDialog: "",
+
 
     }
+
   },
   props: {
-    initialImagesData: {
-      type: [String, Array],
-      default: "default-images-data.json",
+    imagesData: {
+      type: Array,
+
     },
   },
-  created() {
-    if (typeof this.initialImagesData ==='string') {
-      fetch(this.initialImagesData)
-          .then(rep => rep.json())
-          .then(json => this.imagesData = json);
-    } else {
-      this.imagesData = this.initialImagesData;
-    }
 
-  },
   methods: {
-    afficheImg(imageCourante, titreDialog) {
+    afficheImg(imageCourante , titredeDialog,lealtDialog) {
       this.$refs.dialog.show();
-      this.titreDialog = titreDialog
+      this.titreDialog = titredeDialog
+      this.altDialog = lealtDialog
       this.imageCourante = imageCourante
     }
   },

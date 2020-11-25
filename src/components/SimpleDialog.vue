@@ -9,6 +9,9 @@
             <header>
                 <h1> {{ titre }} </h1>
             </header>
+          <div>
+            <legend>{{ alt }}</legend>
+          </div>
 
             <div class="main">
                <slot> Valeur par defaut </slot>
@@ -42,12 +45,26 @@
       titre: {
           type: String,
           default: "le titre par defaut",
-      }
+      },
+          alt: {
+            type: String,
+            default: "legende par defaut",
+          },
 
      },
     methods: {
             show() {
                 this.visible = true;
+
+                /**
+                const dest = this.$refs.dialogWindow;
+                if (des.animate){
+                  this.$nextTick(() => {
+                    const first = from.getBoundingClientRect();
+                    const last = dest.getBoundingClientRect();
+                  });
+                }
+                 */
      },
     },
 }

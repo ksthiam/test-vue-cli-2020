@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Bonjour</h1>
-    <light-box :initial-images-data="ListeImages" />
+    <light-box :images-data="ListeImages" />
   </div>
 </template>
 
@@ -18,48 +18,57 @@ export default {
         {
           "src": "images/thumbnails/animals-1.jpeg",
           "dataFullImg": "images/animals-1.jpeg",
-          "title":"Gorille"
+          "title":"Gorille",
+          "alt":"une jolie image",
         },
         {
           "src": "images/thumbnails/animals-2.jpeg",
           "dataFullImg": "images/animals-2.jpeg",
-          "title":"banbi"
+          "title":"banbi",
+          "alt":"une jolie image"
 
         },
         {
           "src": "images/thumbnails/animals-3.jpeg",
           "dataFullImg": "images/animals-3.jpeg",
-          "title":"cochon"
+          "title":"cochon",
+          "alt":"une jolie image"
         },
         {
           "src": "images/thumbnails/animals-4.jpeg",
           "dataFullImg": "images/animals-4.jpeg",
-          "title":"Rhinocéroce"
+          "title":"Rhinocéroce",
+          "alt":"une jolie image"
         },
         {
           "src": "images/thumbnails/animals-5.jpeg",
           "dataFullImg": "images/animals-5.jpeg",
-          "title":"Chat"
+          "title":"Chat",
+          "alt":"une jolie image"
         },
         {
           "src": "images/thumbnails/animals-6.jpeg",
           "dataFullImg": "images/animals-6.jpeg",
-          "title":"Chien"
+          "title":"Chien",
+          "alt":"une jolie image"
         },
         {
           "src": "images/thumbnails/animals-7.jpeg",
           "dataFullImg": "images/animals-7.jpeg",
-          "title":"Guepard"
+          "title":"Guepard",
+          "alt":"une jolie image"
         },
         {
           "src": "images/thumbnails/animals-8.jpeg",
           "dataFullImg": "images/animals-8.jpeg",
-          "title":"Ziraff"
+          "title":"Ziraff",
+          "alt":"une jolie image"
         },
         {
           "src": "images/thumbnails/animals-9.jpeg",
           "dataFullImg": "images/animals-9.jpeg",
-          "title":"Chien"
+          "title":"Chien",
+          "alt":"une jolie image"
         }
       ]
     }

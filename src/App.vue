@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <buton class="btn1" @click= "filtreType = 'sauvage' "> Sauvage</buton>
-    <buton class="btn2" @click= "filtreType = 'domestique'"> Domestique</buton>
+
+    <button  @click= "filtreType = null ">Tous</button>
+
+    <button  v-for="type of listeFiltre" :key="type"
+           @click= "filtreType = type"> {{type}}</button>
 
     <h1>Bonjour</h1>
 
@@ -95,12 +98,11 @@ export default {
      if (this.filtreType){
        return this.ListeImages.filter(({type})=>type===this.filtreType);
      }else{
-       return this.ListeImages
+       return [...this.ListeImages];
      }
-
-
-
-
+    },
+    listeFiltre(){
+     return new Set(this.ListeImages.map(obj=>obj.type));
     }
   },
 
@@ -119,6 +121,13 @@ export default {
   border: 1px solid black;
   padding: 5px;
   background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.btn3{
+  border: 1px solid red;
+  padding: 5px;
+  background-color: red;
   color: white;
   cursor: pointer;
 }

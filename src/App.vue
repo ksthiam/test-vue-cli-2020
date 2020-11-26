@@ -151,7 +151,7 @@ export default {
       if (this.filtreType) {
         data = data.filter(({type}) => type === this.filtreType);
       } if (this.nomTri) {
-        data.sort((a,b)=> a.tris[this.nomTri] - b.tris.[this.nomTri])
+        data.sort((a, b)=> a.tris[this.nomTri] - b.tris[this.nomTri])
       }
       return data;
     },

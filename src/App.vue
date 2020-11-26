@@ -1,6 +1,11 @@
 <template>
   <div id="app">
+    <buton class="btn1" @click= "filtreType = 'sauvage' "> Sauvage</buton>
+    <buton class="btn2" @click= "filtreType = 'domestique'"> Domestique</buton>
+
     <h1>Bonjour</h1>
+
+
     <light-box :images-data="imagesDataFiltres" />
   </div>
 </template>
@@ -13,7 +18,7 @@ export default {
   components: {LightBox},
   data() {
     return {
-      filtreType: "domestique",
+      filtreType: null,
       ListeImages: [
 
         {
@@ -87,7 +92,12 @@ export default {
   },
   computed: {
    imagesDataFiltres() {
-      return this.ListeImages.filter(({type})=>type===this.filtreType);
+     if (this.filtreType){
+       return this.ListeImages.filter(({type})=>type===this.filtreType);
+     }else{
+       return this.ListeImages
+     }
+
 
 
 
@@ -97,6 +107,20 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.btn1{
+  border: 1px solid green;
+  padding: 5px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+.btn2{
+  border: 1px solid black;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
 
 </style>

@@ -54,3 +54,7 @@ export default {
 
 
 </script>
+<style class="scoped">
+
+
+</style>

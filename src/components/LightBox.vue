@@ -1,11 +1,11 @@
 <template>
   <div class="light-box">
-    <ul>
+    <transition-group name="list" tag="ul">
       <li v-for="{src, dataFullImg, title, alt} in imagesData" :key="src">
         <img @click="afficheImg(dataFullImg,title, alt, $event.target)"
              :src="src" :alt="alt" :title="title"/>
       </li>
-    </ul>
+    </transition-group>
 
     <SimpleDialog ref="dialog"
            :titre="titreDialog" :alt="altDialog">
